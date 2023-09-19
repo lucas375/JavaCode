@@ -1,36 +1,6 @@
-private static void cadastrarConta(ArrayList<Conta> banco) {
-	Conta conta = null;
 
-	int tipoConta = InOut
-			.leInt("Informe o tipo de conta que deseja inserir.\n1 - Conta simples.\n2 - Conta Especial.");
-	if (tipoConta == 1) {
-		conta = inserirContaComum();
-	} else if (tipoConta == 2) {
-		conta = inserirContaEspecial();
-	} else {
-		return;
-	}
 
-	if (conta == null)
-		return;
 
-	boolean existe = false;
-
-	for (Conta c : banco) {
-		if (c.getNumero() == conta.getNumero()) {
-			existe = true;
-			break;
-		}
-	}
-
-	if (existe) {
-		InOut.msgDeAviso("CADASTRO NÃO EFETUADO",
-				"Cadastro inválido. Némero de conta " + conta.getNumero() + " existente.");
-	} else {
-		banco.add(conta);
-		InOut.msgDeInformacao("CADASTRO EFETUADO", "A conta " + conta.getNumero() + " foi cadastrada com sucesso.");
-	}
-}
 
 private static Conta inserirContaComum() {
 	String nome = InOut.leString("Nome:\n");
@@ -156,3 +126,38 @@ private static void transferencia(ArrayList<Conta> banco) {
   }
 }
 
+public class TesteContas {
+	private static void cadastrarConta(ArrayList<Conta> banco) {
+		Conta conta = null;
+
+		int tipoConta = InOut
+				.leInt("Informe o tipo de conta que deseja inserir.\n1 - Conta simples.\n2 - Conta Especial.");
+		if (tipoConta == 1) {
+			conta = inserirContaComum();
+		} else if (tipoConta == 2) {
+			conta = inserirContaEspecial();
+		} else {
+			return;
+		}
+
+		if (conta == null)
+			return;
+
+		boolean existe = false;
+
+		for (Conta c : banco) {
+			if (c.getNumero() == conta.getNumero()) {
+				existe = true;
+				break;
+			}
+		}
+
+		if (existe) {
+			InOut.msgDeAviso("CADASTRO NÃO EFETUADO",
+					"Cadastro inválido. Némero de conta " + conta.getNumero() + " existente.");
+		} else {
+			banco.add(conta);
+			InOut.msgDeInformacao("CADASTRO EFETUADO", "A conta " + conta.getNumero() + " foi cadastrada com sucesso.");
+		}
+	}
+}
