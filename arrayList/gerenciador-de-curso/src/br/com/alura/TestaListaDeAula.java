@@ -14,9 +14,9 @@ public class TestaListaDeAula {
 
         ArrayList<Aula> aulas = new ArrayList<>();
 
-//        aulas.add(a1);
-//        aulas.add(a2);
-//        aulas.add(a3);
+        aulas.add(a1);
+        aulas.add(a2);
+        aulas.add(a3);
 
 
 
