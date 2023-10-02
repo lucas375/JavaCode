@@ -31,8 +31,19 @@ public class Curso {
         this.aulas.add(aula);
     }
 
+
+    public int getTempoTotal(){
+        int tempoTotal = 0;
+        for (Aula aula : aulas){
+            tempoTotal+= aula.getTemp();
+        }
+        return tempoTotal;
+    }
+
+
     @Override
     public String toString() {
-        return   "Nome do curso: " + this.nome + ", " +"Nome do instrutor: "+ this.instrutor;
+        return   "Nome do curso: " + this.nome + ", " +"Nome do instrutor: "+ this.instrutor + ", " + "tempo total "
+                + this.getTempoTotal() + ", \n" + this.aulas ;
     }
 }
